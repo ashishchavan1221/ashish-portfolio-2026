@@ -99,77 +99,65 @@ sections.forEach((s) => s && spy.observe(s));
 // Contact Form Validation (Updated + Reply-To Fix)
 // -----------------------------------------------
 
-// ✅ Initialize EmailJS with your PUBLIC KEY
 (function () {
-  emailjs.init({
-    publicKey: "GX24DyvJZL7MJiA4l", // your own EmailJS public key
-  });
-})();
+      emailjs.init({
+        publicKey: "GX24DyvJZL7MJiA4l", // your EmailJS Public Key
+      });
+    })();
 
-// ✅ Handle form submit
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", async function (e) {
-    e.preventDefault();
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-    const emailHint = document.getElementById("emailHint");
-    const formStatus = document.getElementById("formStatus");
-    const submitBtn = document.getElementById("submitBtn");
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const emailHint = document.getElementById("emailHint");
+      const formStatus = document.getElementById("formStatus");
+      const submitBtn = document.getElementById("submitBtn");
 
-    // Reset messages
-    emailHint.classList.add("hidden");
-    formStatus.textContent = "";
-    formStatus.className = "text-sm text-center mt-2";
+      emailHint.classList.add("hidden");
+      formStatus.textContent = "";
+      formStatus.className = "text-sm text-center mt-2";
 
-    // Gmail validation
-    if (!email.endsWith("@gmail.com")) {
-      emailHint.classList.remove("hidden");
-      return;
-    }
-
-    // Field validation
-    if (!name || !email || !message) {
-      formStatus.textContent = "⚠️ Please fill in all fields.";
-      formStatus.classList.add("text-rose-400");
-      return;
-    }
-
-    // Disable button during sending
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-
-    try {
-      // ✅ Send email using EmailJS
-      const response = await emailjs.send(
-        "service_j20mg8j", // your EmailJS Service ID
-        "template_zn5oc5s", // your EmailJS Template ID
-        {
-          from_name: name,
-          from_email: email, // 👈 user email
-          reply_to: email, // 👈 THIS makes Gmail reply to the user's address
-          message: message,
-        }
-      );
-
-      if (response.status === 200) {
-        formStatus.textContent = "✅ Message sent successfully!";
-        formStatus.classList.add("text-green-400");
-        document.getElementById("contactForm").reset();
-      } else {
-        throw new Error("Email not sent");
+      if (!email.endsWith("@gmail.com")) {
+        emailHint.classList.remove("hidden");
+        return;
       }
-    } catch (error) {
-      console.error("EmailJS Error:", error);
-      formStatus.textContent = "❌ Failed to send message. Please try again.";
-      formStatus.classList.add("text-rose-400");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
-    }
-  });
+
+      if (!name || !email || !message) {
+        formStatus.textContent = "⚠️ Please fill in all fields.";
+        formStatus.classList.add("text-rose-400");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+
+      try {
+        const response = await emailjs.send("service_j20mg8j", "template_zn5oc5s", {
+          from_name: name,
+          from_email: email,
+          reply_to: email,
+          message: `📬 You have received a new message from your website:\n\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message:\n${message}\n\n🕒 Sent on: ${new Date().toLocaleString()}`,
+        });
+
+        if (response.status === 200) {
+          formStatus.textContent = "✅ Message sent successfully!";
+          formStatus.classList.add("text-green-400");
+          document.getElementById("contactForm").reset();
+        } else {
+          throw new Error("Email not sent");
+        }
+      } catch (error) {
+        console.error("EmailJS Error:", error);
+        formStatus.textContent = "❌ Failed to send message. Please try again.";
+        formStatus.classList.add("text-rose-400");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      }
+    });
+
 
 // ------------------------------
 // Auto Update Current Year

@@ -1259,93 +1259,82 @@
 
     <!--================================================================================================================== -->
     <!-- ===== CONTACT ME ===== -->
-    <!-- CONTACT SECTION -->
-    <section id="contact"
-        class="relative min-h-[100vh] flex flex-col items-center justify-center py-20 bg-cover bg-center"
-        style="background-image: url('../images/5061807.jpg');">
+ <!-- ✅ CONTACT SECTION -->
+<section id="contact"
+  class="relative min-h-[100vh] flex flex-col items-center justify-center py-20 bg-cover bg-center"
+  style="background-image: url('../images/5061807.jpg');">
 
-        <!-- Dark overlay -->
-        <div class="absolute inset-0 bg-black/90"></div>
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/90"></div>
 
-        <!-- Contact Container -->
-        <div class="relative z-10 w-[90%] max-w-lg mx-auto text-center text-white">
-            <h2
-                class="text-4xl font-extrabold mb-8 bg-gradient-to-r from-cyan-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-                📬 Contact Me
-            </h2>
+  <!-- Contact Container -->
+  <div class="relative z-10 w-[90%] max-w-lg mx-auto text-center text-white">
+    <h2
+      class="text-4xl font-extrabold mb-8 bg-gradient-to-r from-cyan-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+      📬 Contact Me
+    </h2>
 
-            <!-- Non-editable contact info -->
-            <div
-                class="mt-8 p-5 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg text-sm text-slate-300">
-                <h3 class="text-lg font-semibold text-cyan-400 mb-3">📞 Contact Information</h3>
-                <p><span class="font-medium text-white">Phone:</span> +91 7769895939</p>
-                <p><span class="font-medium text-white">Email:</span> ashishdchavan21@gmail.com</p>
-                <p><span class="font-medium text-white">Address:</span> Pune, Maharashtra, India</p>
-            </div>
+    <!-- Non-editable contact info -->
+    <div
+      class="mt-8 p-5 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg text-sm text-slate-300">
+      <h3 class="text-lg font-semibold text-cyan-400 mb-3">📞 Contact Information</h3>
+      <p><span class="font-medium text-white">Phone:</span> +91 7769895939</p>
+      <p><span class="font-medium text-white">Email:</span> ashishdchavan21@gmail.com</p>
+      <p><span class="font-medium text-white">Address:</span> Pune, Maharashtra, India</p>
+    </div>
 
-            <!-- Contact Form -->
-            <form id="contactForm"
-                class="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl p-8 space-y-4 shadow-xl"
-                novalidate>
+    <!-- Contact Form -->
+    <form id="contactForm"
+      class="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl p-8 space-y-4 shadow-xl"
+      novalidate>
 
-                <h3
-                    class="text-3xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-pink-400 to-blue-400 bg-clip-text text-transparent text-center">
-                    💌 Message Me
-                </h3>
+      <h3
+        class="text-3xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-pink-400 to-blue-400 bg-clip-text text-transparent text-center">
+        💌 Message Me
+      </h3>
 
-                <!-- Name -->
-                <div class="text-left">
-                    <label class="block text-slate-300 text-sm mb-1">Your Name</label>
-                    <input type="text" name="name" id="name" placeholder="Enter your name"
-                        class="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-cyan-400 focus:outline-none"
-                        required>
-                </div>
+      <!-- Name -->
+      <div class="text-left">
+        <label class="block text-slate-300 text-sm mb-1">Your Name</label>
+        <input type="text" name="name" id="name" placeholder="Enter your name"
+          class="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-cyan-400 focus:outline-none"
+          required>
+      </div>
 
-                <!-- Email -->
-                <div class="text-left">
-                    <label class="block text-slate-300 text-sm mb-1">Your Email (Gmail only)</label>
-                    <input type="email" name="email" id="email" placeholder="you@gmail.com"
-                        class="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-cyan-400 focus:outline-none"
-                        required>
-                    <p id="emailHint" class="text-xs text-rose-400 mt-1 hidden">
-                        Please use a valid @gmail.com address.
-                    </p>
-                </div>
+      <!-- Email -->
+      <div class="text-left">
+        <label class="block text-slate-300 text-sm mb-1">Your Email (Gmail only)</label>
+        <input type="email" name="email" id="email" placeholder="you@gmail.com"
+          class="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-cyan-400 focus:outline-none"
+          required>
+        <p id="emailHint" class="text-xs text-rose-400 mt-1 hidden">
+          Please use a valid @gmail.com address.
+        </p>
+      </div>
 
-                <!-- Message -->
-                <div class="text-left">
-                    <label class="block text-slate-300 text-sm mb-1">Your Message</label>
-                    <textarea name="message" id="message" rows="4" placeholder="Type your message..."
-                        class="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-cyan-400 focus:outline-none"
-                        required></textarea>
-                </div>
+      <!-- Message -->
+      <div class="text-left">
+        <label class="block text-slate-300 text-sm mb-1">Your Message</label>
+        <textarea name="message" id="message" rows="4" placeholder="Type your message..."
+          class="w-full px-4 py-2.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-cyan-400 focus:outline-none"
+          required></textarea>
+      </div>
 
-                <!-- Submit Button -->
-                <button id="submitBtn" type="submit"
-                    class="w-full py-2.5 mt-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold text-sm hover:scale-[1.02] transition-transform">
-                    Send Message
-                </button>
+      <!-- Submit Button -->
+      <button id="submitBtn" type="submit"
+        class="w-full py-2.5 mt-4 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold text-sm hover:scale-[1.02] transition-transform">
+        Send Message
+      </button>
 
-                <!-- Status Message -->
-                <p id="formStatus" class="text-sm text-center mt-2"></p>
-            </form>
-        </div>
+      <!-- Status Message -->
+      <p id="formStatus" class="text-sm text-center mt-2"></p>
+    </form>
+  </div>
 
-        <!-- ✅ EmailJS SDK -->
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- ✅ EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-        <script>
-            // Optional: You can add your EmailJS or form logic here later
-        </script>
-    </section>
-
-
-
-
-
-
-
-
+</section>
 
     <!--================================================================================================================== -->
 
