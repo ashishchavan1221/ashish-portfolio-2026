@@ -160,7 +160,7 @@ const Contact = () => {
 
               <div>
                 <label className="block text-slate-700 dark:text-slate-300 text-sm mb-1.5 font-bold">Contact Number</label>
-                <input type="tel" name="phone" placeholder="+91 0000000000" required
+                <input type="tel" name="phone" placeholder="+91 1234567890" required
                   value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-5 py-3.5 rounded-xl bg-white/80 dark:bg-black/30 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white placeholder:text-slate-400 text-sm focus:ring-2 focus:ring-brand dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all shadow-sm" />
               </div>
