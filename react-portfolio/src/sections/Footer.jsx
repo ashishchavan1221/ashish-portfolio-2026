@@ -101,8 +101,8 @@ const Footer = () => {
       <div className="relative border-t border-slate-200 dark:border-white/10 transition-colors duration-500 bg-slate-100/50 dark:bg-black/40">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-slate-500 dark:text-slate-400 transition-colors">
           <p>© {currentYear} Ashish Chavan. All rights reserved.</p>
-          <p className="mt-2 sm:mt-0 flex items-center gap-1.5 font-medium">
-            Built with <FaHeart className="text-rose-500 animate-pulse" /> using React & Tailwind
+          <p className="mt-2 sm:mt-0 flex flex-wrap items-center justify-center gap-1.5 font-bold text-slate-700 dark:text-slate-300 transition-colors">
+            Built with <FaHeart className="text-rose-500 animate-pulse shrink-0" /> &amp; Precision • Driven by Passion, Code &amp; Innovation 🚀
           </p>
         </div>
       </div>

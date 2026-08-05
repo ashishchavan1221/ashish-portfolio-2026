@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
 
           <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-justify leading-relaxed tracking-wide transition-colors duration-500">
-            Pursuing an MCA in Artificial Intelligence & Machine Learning at Lovely Professional University,
+            Pursuing an MCA in Artificial Intelligence &amp; Machine Learning at Lovely Professional University,
             I am passionate about transforming complex data into actionable insights. With expertise in
             Python, SQL, and data visualization, I enjoy learning predictive modeling, statistical analysis,
             and machine learning to solve real-world challenges. My academic journey focuses on deep
@@ -65,19 +65,18 @@ const Hero = () => {
           className="flex justify-center relative py-6 px-2 sm:p-10 mt-2 lg:mt-0 w-full order-first lg:order-last"
         >
           <div className="relative w-64 h-80 sm:w-80 sm:h-96 md:w-[24rem] md:h-[32rem] lg:w-[26rem] lg:h-[34rem] shrink-0 mx-auto">
-            {/* Glows */}
-            <div className="absolute inset-0 rounded-3xl blur-3xl bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-500 opacity-40 dark:opacity-70 animate-driftGlow transition-opacity duration-500"></div>
-            <div className="absolute inset-0 rounded-3xl blur-2xl bg-pink-500/30 dark:bg-pink-500/40 animate-blinkGlow transition-colors duration-500"></div>
+            {/* Professional Soft Ambient Backdrop */}
+            <div className="absolute -inset-2 rounded-[2.5rem] bg-gradient-to-tr from-cyan-500/15 via-blue-600/10 to-purple-600/15 blur-2xl opacity-60 pointer-events-none"></div>
             
-            <img src="/images/ashishimg.jpg" alt="Ashish Chavan" className="relative w-full h-full object-cover rounded-3xl shadow-2xl dark:shadow-xl z-10 border-4 border-white/60 dark:border-white/10 transition-colors duration-500" />
+            <img src="/images/ashishimg.jpg" alt="Ashish Chavan" className="relative w-full h-full object-cover rounded-3xl shadow-2xl z-10 border-2 border-slate-200/60 dark:border-white/15 transition-all duration-500" />
 
-            {/* Floating Icons */}
-            <FloatingIcon src="/images/react-2.svg" alt="React" top="-10%" left="-10%" delay={0} />
-            <FloatingIcon src="/images/python.svg" alt="Python" top="30%" left="-15%" delay={1} />
-            <FloatingIcon src="/images/mysql-logo.svg" alt="MySQL" top="-5%" right="-10%" delay={0.5} />
-            <FloatingIcon src="/images/tensorflow.svg" alt="TensorFlow" bottom="20%" right="-15%" delay={1.5} />
-            <FloatingIcon src="/images/pytorch.svg" alt="PyTorch" bottom="-10%" left="25%" delay={2} />
-            <FloatingIcon src="/images/ai-brain.svg" alt="AI" bottom="-12%" right="-10%" delay={0.7} />
+            {/* Floating Icons with 2.8s Butterfly Flight Trajectories */}
+            <FloatingIcon src="/images/react-2.svg" alt="React" top="-8%" left="-8%" delay={0.2} flyInX={-400} flyInY={-200} flyInRotate={-45} />
+            <FloatingIcon src="/images/python.svg" alt="Python" top="30%" left="-14%" delay={0.5} flyInX={-450} flyInY={100} flyInRotate={30} />
+            <FloatingIcon src="/images/mysql-logo.svg" alt="MySQL" top="-4%" right="-8%" delay={0.35} flyInX={400} flyInY={-200} flyInRotate={45} />
+            <FloatingIcon src="/images/tensorflow.svg" alt="TensorFlow" bottom="20%" right="-14%" delay={0.65} flyInX={450} flyInY={150} flyInRotate={-30} />
+            <FloatingIcon src="/images/pytorch.svg" alt="PyTorch" bottom="-8%" left="22%" delay={0.8} flyInX={-300} flyInY={300} flyInRotate={-25} />
+            <FloatingIcon src="/images/ai-brain.svg" alt="AI" bottom="-10%" right="-8%" delay={0.95} flyInX={350} flyInY={250} flyInRotate={35} />
           </div>
         </motion.div>
       </div>
@@ -91,23 +90,43 @@ const SocialIcon = ({ href, icon }) => (
   </a>
 );
 
-const FloatingIcon = ({ src, alt, top, left, right, bottom, delay }) => (
-  <motion.img 
-    src={src} 
-    alt={alt} 
-    className="absolute w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl p-2 sm:p-3 shadow-xl dark:shadow-2xl glass z-20"
+const FloatingIcon = ({ src, alt, top, left, right, bottom, delay, flyInX, flyInY, flyInRotate }) => (
+  <motion.div 
+    className="absolute z-20 cursor-pointer"
     style={{ top, left, right, bottom }}
+    initial={{ 
+      x: flyInX, 
+      y: flyInY, 
+      scale: 0, 
+      opacity: 0, 
+      rotate: flyInRotate 
+    }}
     animate={{ 
-      y: [0, -20, 0],
-      rotate: [0, 8, -8, 0]
+      x: [flyInX, flyInX * 0.6, flyInX * 0.25, 0], 
+      y: [flyInY, flyInY * 0.45 - 35, flyInY * 0.15 + 25, 0, -18, 0, 14, 0], 
+      scale: [0, 1.25, 0.92, 1], 
+      opacity: [0, 0.75, 1, 1], 
+      rotate: [flyInRotate, flyInRotate * -0.5, 15, -12, 0, 8, -8, 5, 0] 
+    }}
+    whileHover={{ 
+      scale: 1.28, 
+      rotate: 12, 
+      zIndex: 30 
     }}
     transition={{
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay: delay
+      x: { duration: 2.8, delay: delay, ease: [0.25, 1, 0.5, 1] },
+      opacity: { duration: 1.2, delay: delay },
+      scale: { duration: 2.8, delay: delay, ease: [0.25, 1, 0.5, 1] },
+      y: { duration: 6 + (delay % 2), repeat: Infinity, ease: "easeInOut", delay: delay + 2.8 },
+      rotate: { duration: 7 + (delay % 2), repeat: Infinity, ease: "easeInOut", delay: delay + 2.8 }
     }}
-  />
+  >
+    <img 
+      src={src} 
+      alt={alt} 
+      className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-2xl p-2 sm:p-3 shadow-xl dark:shadow-2xl glass border border-slate-200/60 dark:border-white/15 hover:border-cyan-400 dark:hover:border-cyan-400 transition-colors"
+    />
+  </motion.div>
 );
 
 export default Hero;

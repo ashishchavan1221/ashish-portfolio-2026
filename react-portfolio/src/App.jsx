@@ -51,10 +51,10 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Projects />
+        <Experience />
         <Skills />
         <Certifications />
-        <Experience />
-        <Projects />
         <Academics />
         <Contact />
       </main>

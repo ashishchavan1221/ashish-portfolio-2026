@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { FaChevronLeft, FaChevronRight, FaAward, FaExternalLinkAlt, FaCheckCircle } from 'react-icons/fa';
 
 const certs = [
   {
@@ -42,16 +43,6 @@ const certs = [
     link: "https://drive.google.com/file/d/1S0lyxvsBZuUX8EYj8JtGPKJIVeSF0IEV/view"
   },
   {
-    img: "AI_intern.png",
-    title: "AI Internship",
-    inst: "Ai Variant, Bengaluru",
-    issued: "17 May 2025 (13 Feb 2025 – 16 May 2025)",
-    desc: "Successfully completed an AI internship focused on Natural Language Processing (NLP), Computer Vision (CV), Deep Learning (DL), and Deployment. Worked on real-world AI pipelines, optimizing models, and deploying solutions for production environments.",
-    ToolsText: "Python, PyTorch, TensorFlow, Hugging Face, GitHub, Docker",
-    certID: "AIV/24-25/Q2/05/1043",
-    link: "https://drive.google.com/file/d/15LImUtk4foGWxehjlmd4JS1gytZlbLnL/view"
-  },
-  {
     img: "cait.png",
     title: "Certificate Course in Information Technology",
     inst: "Center for Advanced Information Technologies (CAIT Edusys Pvt. Ltd.)",
@@ -87,12 +78,12 @@ const certs = [
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, scale: 0.95, y: 15 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4 } }
 };
 
 const Certifications = () => {
@@ -106,72 +97,110 @@ const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="relative min-h-screen flex items-center justify-center py-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/5061807.jpg')" }}>
+    <section id="certifications" className="relative min-h-[90vh] flex items-center justify-center py-12 lg:py-16 bg-cover bg-center" style={{ backgroundImage: "url('/images/5061807.jpg')" }}>
       {/* Overlay */}
-      <div className="absolute inset-0 bg-slate-100/95 dark:bg-black/95 transition-colors duration-500"></div>
+      <div className="absolute inset-0 bg-slate-100/95 dark:bg-black/90 transition-colors duration-500"></div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 text-center w-full">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 w-full text-center">
         <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl font-extrabold text-slate-800 dark:text-white mb-12 transition-colors duration-500"
+          className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 dark:text-white mb-6 sm:mb-8 transition-colors duration-500"
         >
-          📜 Certificate & Certifications
+          📜 Certificates &amp; Certifications
         </motion.h2>
 
-        <div className="relative">
+        <div className="relative group/carousel px-2 sm:px-6">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             ref={scrollRef} 
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar px-2 pt-2"
+            className="flex items-stretch gap-5 overflow-x-auto scroll-smooth pb-6 pt-2 hide-scrollbar"
           >
             {certs.map((cert, idx) => (
               <motion.div 
                 key={idx}
                 variants={itemVariants}
-                className="glass p-6 rounded-2xl shadow-md dark:shadow-lg bg-white/70 dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 min-w-[360px] max-w-[380px] flex-shrink-0 border border-slate-300 dark:border-transparent hover:-translate-y-2 hover:shadow-xl dark:hover:shadow-[0_10px_35px_rgba(34,211,238,0.25)] transition-all duration-500 text-left flex flex-col"
+                className="glass p-4 sm:p-5 rounded-2xl shadow-xl bg-white/85 dark:bg-gradient-to-br dark:from-slate-900/95 dark:to-slate-800/95 min-w-[280px] sm:min-w-[315px] max-w-[330px] flex-shrink-0 border border-slate-300 dark:border-white/15 hover:shadow-2xl dark:hover:shadow-[0_12px_35px_rgba(34,211,238,0.25)] hover:-translate-y-2 transition-all duration-300 text-left flex flex-col justify-between"
               >
-                <img src={`/images/${cert.img}`} alt={cert.title} className="w-full h-40 object-contain rounded-xl mb-4 border border-slate-200 dark:border-slate-700 shadow-sm dark:shadow-md bg-white dark:bg-black/50" />
-                <h3 className="font-extrabold text-2xl text-brand transition-colors mb-2 tracking-tight">{cert.title}</h3>
-                
-                <p className="text-slate-700 dark:text-slate-300 text-lg mb-1 transition-colors"><span className="font-semibold text-brand-2 dark:text-cyan-400">Inst:</span> {cert.inst}</p>
-                {cert.Candidate && <p className="text-slate-700 dark:text-slate-300 text-lg mb-1 transition-colors"><span className="font-semibold text-brand-2 dark:text-cyan-400">Candidate:</span> {cert.Candidate}</p>}
-                <p className="text-slate-700 dark:text-slate-300 text-lg mb-1 transition-colors"><span className="font-semibold text-brand-2 dark:text-cyan-400">Date:</span> {cert.issued}</p>
-                {cert.DurationGrade && <p className="text-slate-700 dark:text-slate-300 text-lg mb-1 transition-colors"><span className="font-semibold text-brand-2 dark:text-cyan-400">Status:</span> {cert.DurationGrade}</p>}
-                {cert.certID && <p className="text-slate-500 dark:text-slate-400 text-sm mb-1 transition-colors"><span className="font-semibold text-brand-2 dark:text-cyan-400">ID:</span> {cert.certID}</p>}
-                
-                <p className="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed transition-colors">{cert.desc}</p>
+                <div>
+                  <div className="overflow-hidden rounded-xl mb-3 border border-slate-200 dark:border-slate-700/80 shadow-sm p-1.5 bg-white dark:bg-slate-950/60">
+                    <img src={`/images/${cert.img}`} alt={cert.title} className="w-full h-32 sm:h-36 object-contain hover:scale-105 transition-transform duration-500" />
+                  </div>
 
-                {cert.bullets && (
-                  <ul className="text-slate-600 dark:text-slate-400 text-sm mt-2 mb-2 list-disc pl-5 space-y-1 transition-colors">
-                    {cert.bullets.map((b, i) => <li key={i}>{b}</li>)}
-                  </ul>
-                )}
-                
-                {cert.SkillsText && <p className="text-slate-600 dark:text-slate-400 text-sm mt-2 transition-colors"><span className="font-semibold text-slate-800 dark:text-white">Skills:</span> {cert.SkillsText}</p>}
-                {cert.ToolsText && <p className="text-slate-600 dark:text-slate-400 text-sm mt-2 transition-colors"><span className="font-semibold text-slate-800 dark:text-white">Tools:</span> {cert.ToolsText}</p>}
-                
-                <div className="flex-grow"></div>
-                
-                {cert.footerText && <p className="text-slate-500 dark:text-slate-400 text-xs italic mt-4 transition-colors">{cert.footerText}</p>}
-                
-                <a href={cert.link} target="_blank" rel="noreferrer" className="mt-5 mx-auto inline-block bg-gradient-to-r from-brand to-brand-2 dark:from-cyan-500 dark:to-cyan-400 text-white dark:text-black font-bold px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform text-center">
-                  View Certificate
-                </a>
+                  <h3 className="font-extrabold text-lg sm:text-xl text-brand dark:text-cyan-400 tracking-tight leading-snug mb-1.5">{cert.title}</h3>
+                  
+                  <div className="space-y-0.5 text-xs text-slate-700 dark:text-slate-300 font-semibold mb-2">
+                    <p><span className="text-brand-2 dark:text-cyan-400 font-bold">Inst:</span> {cert.inst}</p>
+                    {cert.Candidate && <p><span className="text-brand-2 dark:text-cyan-400 font-bold">Candidate:</span> {cert.Candidate}</p>}
+                    <p><span className="text-brand-2 dark:text-cyan-400 font-bold">Date:</span> {cert.issued}</p>
+                    {cert.DurationGrade && <p><span className="text-brand-2 dark:text-cyan-400 font-bold">Status:</span> {cert.DurationGrade}</p>}
+                    {cert.certID && <p><span className="text-brand-2 dark:text-cyan-400 font-bold">ID:</span> {cert.certID}</p>}
+                  </div>
+
+                  <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed transition-colors font-medium mt-2">{cert.desc}</p>
+
+                  {cert.bullets && (
+                    <ul className="text-slate-600 dark:text-slate-300 text-xs mt-2 space-y-1 font-medium">
+                      {cert.bullets.map((b, i) => (
+                        <li key={i} className="flex items-start gap-1.5">
+                          <FaCheckCircle className="text-cyan-400 shrink-0 mt-0.5" size={9} />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  
+                  {cert.SkillsText && (
+                    <p className="text-xs mt-2 font-semibold text-slate-700 dark:text-cyan-300 bg-slate-100 dark:bg-cyan-500/10 p-1.5 rounded-lg border border-slate-200 dark:border-cyan-500/20">
+                      💡 <span className="font-bold text-slate-900 dark:text-white">Skills:</span> {cert.SkillsText}
+                    </p>
+                  )}
+                  {cert.ToolsText && (
+                    <p className="text-xs mt-2 font-semibold text-slate-700 dark:text-cyan-300 bg-slate-100 dark:bg-cyan-500/10 p-1.5 rounded-lg border border-slate-200 dark:border-cyan-500/20">
+                      🛠️ <span className="font-bold text-slate-900 dark:text-white">Tools:</span> {cert.ToolsText}
+                    </p>
+                  )}
+
+                  {cert.footerText && (
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 italic mt-2.5 font-medium leading-tight">
+                      {cert.footerText}
+                    </p>
+                  )}
+                </div>
+
+                {/* Contained View Certificate Button */}
+                <div className="mt-3.5 pt-3 border-t border-slate-200 dark:border-white/10 flex justify-center">
+                  <a 
+                    href={cert.link} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center gap-1.5 bg-gradient-to-r from-brand to-brand-2 dark:from-cyan-400 dark:to-blue-600 text-white dark:text-black px-3.5 py-1.5 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.05] transition-all text-center font-extrabold text-xs"
+                  >
+                    <FaAward size={13} /> View Certificate <FaExternalLinkAlt size={9} />
+                  </a>
+                </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Nav Arrows */}
-          <button onClick={() => scroll('left')} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-white/10 backdrop-blur-lg text-slate-800 dark:text-white p-3 rounded-full shadow-lg hover:bg-brand hover:text-white transition border border-slate-300 dark:border-white/20 hidden sm:block">
-            &#10094;
+          {/* Easy Left & Right Navigation Arrows */}
+          <button 
+            onClick={() => scroll('left')} 
+            className="absolute -left-1 sm:-left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95"
+            aria-label="Previous Certificates"
+          >
+            <FaChevronLeft size={18} />
           </button>
-          <button onClick={() => scroll('right')} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-white/10 backdrop-blur-lg text-slate-800 dark:text-white p-3 rounded-full shadow-lg hover:bg-brand hover:text-white transition border border-slate-300 dark:border-white/20 hidden sm:block">
-            &#10095;
+          <button 
+            onClick={() => scroll('right')} 
+            className="absolute -right-1 sm:-right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95"
+            aria-label="Next Certificates"
+          >
+            <FaChevronRight size={18} />
           </button>
         </div>
       </div>

@@ -1,66 +1,73 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import { FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const projectList = [
   {
-    title: "Personal Portfolio Website",
-    image: "/images/portfolio.png",
-    desc: "Developed a fully responsive, modern portfolio website to showcase my professional journey and technical projects.",
+    title: "Next-Gen AI Rainfall Prediction System",
+    image: "/images/rainfall-prediction.png",
+    desc: "Real-time AI environmental intelligence system (Feb – May 2026) delivering 5-day rainfall predictions and flood risk scoring.",
+    contribution: "Frontend & UI/UX Lead: Weather dashboard, live wind tracker & AI metrics UI.",
     bullets: [
-      "Responsive design using Tailwind CSS",
-      "Interactive UI with smooth scroll and hover animations",
-      "Project showcase with dynamic cards and live links",
-      "Dark mode inspired modern aesthetic for better user experience"
+      "93% AI confidence score with live map choropleth tracking",
+      "5-day predictive weather cards & real-time risk indicators"
     ],
-    link: "https://ashishchavan-portfolio.netlify.app/",
-    btnText: "View Live"
+    links: [
+      { text: "View Live", url: "https://next-gen-ai-rainfall-prediction-sys.vercel.app/", icon: <FaExternalLinkAlt size={11} /> },
+      { text: "View GitHub", url: "https://github.com/ashishchavan1221/Next-Gen-AI-__-Rainfall-Prediction-System", icon: <FaGithub size={13} /> }
+    ]
   },
   {
-    title: "Public Grievance Website (SIH)",
-    image: "/images/SIH-porject.png",
-    desc: "Successfully developed a dynamic web application during the SIH hackathon with my team. I focused on the frontend design, ensuring a smooth user interface, while teammates handled the backend.",
+    title: "ClassNote AI",
+    image: "/images/classnote-ai.png",
+    desc: "Autonomous smart classroom platform that hosts live Jitsi calls, transcribes lectures, references past content, extracts action items, syncs tasks to Notion, and formats handwriting-styled study notes.",
+    contribution: "Full-Stack & AI Engineer: Built autonomous lecture transcription pipeline, Notion sync integration, and interactive notes interface.",
     bullets: [
-      "Collaborated in a team setting to build a fully functional system",
-      "Designed responsive and intuitive frontend interfaces",
-      "Implemented clean UI components using HTML, Tailwind CSS, and JS"
+      "Real-time Jitsi video meeting integration with automated lecture transcription & AI summaries",
+      "Bi-directional Notion API task sync & automated handwriting-styled PDF note generation"
     ],
-    link: "https://sih-public-grievance.vercel.app/",
-    btnText: "View Live"
+    links: [
+      { text: "View Live", url: "https://classnote-ai-mjw4.onrender.com/", icon: <FaExternalLinkAlt size={11} /> },
+      { text: "View GitHub", url: "https://github.com/ashishchavan1221/classnote-ai", icon: <FaGithub size={13} /> }
+    ]
   },
   {
     title: "Data Science Prize Detection",
-    image: "/images/Prise-project.png",
-    desc: "Implemented a Data Science project to accurately detect and classify prizes from images. Leveraged machine learning techniques and computer vision.",
+    image: "/images/project.png",
+    desc: "Machine learning predictive application designed to analyze complex dataset features and estimate accurate price metrics.",
+    contribution: "Data Science & ML Engineer: Feature engineering, regression model & web UI.",
     bullets: [
-      "Deployed prize detection using Python, Pandas, Numpy & Scikit-Learn",
-      "Optimized model performance to achieve high accuracy",
-      "Designed a user-friendly web interface for live demo"
+      "Machine learning pipeline built with Python, Scikit-Learn, Pandas & NumPy",
+      "Feature engineering & linear regression model for high-accuracy estimations"
     ],
-    link: "https://splendorous-treacle-88c151.netlify.app/",
-    btnText: "View Live"
+    links: [
+      { text: "View Live", url: "https://bangalore-price-predictor.vercel.app/", icon: <FaExternalLinkAlt size={11} /> },
+      { text: "View GitHub", url: "https://github.com/ashishchavan1221/bangalore-price-predictor", icon: <FaGithub size={13} /> }
+    ]
   },
   {
-    title: "Transformer NLP Evaluation",
-    image: "/images/github-project.png",
-    desc: "A comprehensive research-driven project where I conducted a comparative performance analysis of state-of-the-art Transformer models for real-world NLP tasks. Developed at AI Variant.",
+    title: "Personal Portfolio Website",
+    image: "/images/pf1.png",
+    desc: "Fully responsive modern portfolio showcasing technical projects, machine learning expertise, and academic background.",
+    contribution: "Full-Stack Architect & UI/UX Designer: Glassmorphic interface, dark mode & AI assistant.",
     bullets: [
-      "Implemented Transformers using HuggingFace & PyTorch",
-      "Visualized performance metrics using Matplotlib & Seaborn",
-      "Documented research outcomes with detailed model benchmarking"
+      "Built with React 19, Tailwind CSS, Framer Motion & interactive 3D elements",
+      "Integrated AI chatbot assistant, smooth scrolling & custom theme system"
     ],
-    link: "https://github.com/ashishchavan1221/excelr-ai-nlp-transformer-evaluation",
-    btnText: "View on GitHub"
+    links: [
+      { text: "View Live", url: "https://ashish-portfolio-2026.vercel.app/", icon: <FaExternalLinkAlt size={11} /> }
+    ]
   }
 ];
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.12 } }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 20 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, scale: 0.95, y: 15 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.4 } }
 };
 
 const Projects = () => {
@@ -74,60 +81,88 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="relative min-h-screen flex items-center justify-center py-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/5061807.jpg')" }}>
-      {/* Overlay */}
+    <section id="projects" className="relative min-h-[90vh] flex items-center justify-center py-12 lg:py-16 bg-cover bg-center" style={{ backgroundImage: "url('/images/5061807.jpg')" }}>
+      {/* Dark/Light Overlay */}
       <div className="absolute inset-0 bg-slate-100/95 dark:bg-black/90 transition-colors duration-500"></div>
 
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl font-extrabold text-slate-800 dark:text-white mb-12 transition-colors duration-500"
+          className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-800 dark:text-white mb-6 sm:mb-8 transition-colors duration-500"
         >
           💻 Projects
         </motion.h2>
 
-        <div className="relative">
-          <motion.div 
+        <div className="relative group/carousel px-2 sm:px-6">
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            ref={scrollRef} 
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-6 hide-scrollbar px-2 pt-2"
+            ref={scrollRef}
+            className="flex items-stretch gap-6 overflow-x-auto scroll-smooth pb-6 pt-2 hide-scrollbar"
           >
             {projectList.map((proj, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="glass p-6 rounded-2xl shadow-md dark:shadow-lg bg-white/70 dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-800 min-w-[340px] max-w-[360px] flex-shrink-0 border border-slate-300 dark:border-transparent hover:shadow-xl dark:hover:shadow-[0_10px_35px_rgba(34,211,238,0.25)] hover:-translate-y-2 transition-all duration-500 text-left flex flex-col"
+                className="glass p-5 sm:p-6 rounded-3xl shadow-xl bg-white/85 dark:bg-gradient-to-br dark:from-slate-900/95 dark:to-slate-800/95 min-w-[320px] sm:min-w-[350px] max-w-[370px] flex-shrink-0 border border-slate-300 dark:border-white/15 hover:shadow-2xl dark:hover:shadow-[0_12px_40px_rgba(34,211,238,0.25)] hover:-translate-y-2 transition-all duration-300 text-left flex flex-col justify-between"
               >
-                <img src={proj.image} alt={proj.title} className="w-full h-44 object-cover rounded-xl mb-4 border border-slate-200 dark:border-slate-700 shadow-sm dark:shadow-md" />
-                <div className="flex-grow">
-                  <h3 className="font-bold text-2xl text-brand dark:text-brand-2 tracking-tight transition-colors">{proj.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm mt-3 leading-relaxed transition-colors">
+                <div>
+                  <a 
+                    href={proj.links.find(l => l.text === "View Live")?.url || proj.links[0]?.url} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="block overflow-hidden rounded-2xl mb-4 border border-slate-200 dark:border-slate-700/80 shadow-sm group/img cursor-pointer"
+                    title={`Open ${proj.title} Live Demo`}
+                  >
+                    <img src={proj.image} alt={proj.title} className="w-full h-36 sm:h-40 object-cover group-hover/img:scale-105 transition-transform duration-500" />
+                  </a>
+                  <h3 className="font-extrabold text-xl sm:text-2xl text-brand dark:text-cyan-400 tracking-tight transition-colors line-clamp-2 leading-snug">{proj.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2.5 leading-relaxed transition-colors font-medium">
                     {proj.desc}
                   </p>
-                  <ul className="text-slate-600 dark:text-slate-400 text-sm mt-3 list-disc list-inside space-y-1 transition-colors">
+                  {proj.contribution && (
+                    <p className="text-xs font-semibold text-slate-700 dark:text-cyan-300 mt-3 bg-slate-100 dark:bg-cyan-500/10 p-2.5 rounded-xl border border-slate-200 dark:border-cyan-500/20 leading-snug">
+                      🎯 <span className="font-bold text-slate-900 dark:text-white">Contribution:</span> {proj.contribution}
+                    </p>
+                  )}
+                  <ul className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-3 space-y-1.5 transition-colors font-medium">
                     {proj.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx}>{bullet}</li>
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-brand dark:text-cyan-400 shrink-0 mt-0.5">•</span>
+                        <span className="leading-tight">{bullet}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
-                <a href={proj.link} target="_blank" rel="noreferrer" className="mt-5 mx-auto inline-block bg-gradient-to-r from-brand to-brand-2 dark:from-cyan-500 dark:to-blue-600 text-white px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl hover:scale-105 transition-transform text-center font-semibold">
-                  {proj.btnText}
-                </a>
+                <div className="mt-5 pt-3.5 border-t border-slate-200 dark:border-white/10 flex flex-wrap gap-2.5 justify-center">
+                  {proj.links.map((lnk, lIdx) => (
+                    <a key={lIdx} href={lnk.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-brand to-brand-2 dark:from-cyan-400 dark:to-blue-600 text-white dark:text-black px-4 py-2 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.05] transition-all text-center font-extrabold text-xs sm:text-sm">
+                      {lnk.icon} {lnk.text}
+                    </a>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Navigation Arrows */}
-          <button onClick={() => scroll('left')} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-white/10 backdrop-blur-lg text-slate-800 dark:text-white p-3 rounded-full shadow-lg hover:bg-brand hover:text-white transition border border-slate-300 dark:border-white/20 hidden sm:block">
-            &#10094;
+          {/* Easy Left & Right Navigation Arrows */}
+          <button 
+            onClick={() => scroll('left')} 
+            className="absolute -left-1 sm:-left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95"
+            aria-label="Previous Projects"
+          >
+            <FaChevronLeft size={18} />
           </button>
-          <button onClick={() => scroll('right')} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/50 dark:bg-white/10 backdrop-blur-lg text-slate-800 dark:text-white p-3 rounded-full shadow-lg hover:bg-brand hover:text-white transition border border-slate-300 dark:border-white/20 hidden sm:block">
-            &#10095;
+          <button 
+            onClick={() => scroll('right')} 
+            className="absolute -right-1 sm:-right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95"
+            aria-label="Next Projects"
+          >
+            <FaChevronRight size={18} />
           </button>
         </div>
       </div>
@@ -136,3 +171,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+

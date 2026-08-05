@@ -18,8 +18,8 @@ const getBotResponse = (input) => {
   if (text.match(/skill|tech|stack|language|python|react|ml|ai|core/)) {
     return "Ashish is a powerhouse when it comes to technology! 🚀\n\n🔹 Programming: Python, C, C++, Java\n🔹 Web Dev: React.js, Node.js, TailwindCSS\n🔹 AI & Data: PyTorch, TensorFlow, NLP, Computer Vision, SQL\n\nHe loves building intelligent systems! Would you like to hear about the projects he's built with these?";
   }
-  if (text.match(/project|portfolio|work|grievance|prize/)) {
-    return "He has built some truly amazing things! 💡\n\n• Premium AI Portfolio (You are looking at it!)\n• Public Grievance System (Built for SIH)\n• Data Science Prize Detection\n• Transformer NLP Evaluation\n\nFeel free to check out the 'Projects' section for live links! Any specific project catch your eye?";
+  if (text.match(/project|portfolio|work|grievance|prize|rainfall|weather|prediction/)) {
+    return "Ashish has built some incredible Next-Gen AI & Web projects! 💡\n\n• Next-Gen AI Rainfall Prediction System (Feb – May 2026)\n• Premium AI Portfolio Website\n• Public Grievance Resolution Platform (SIH Hackathon)\n• Data Science Price Valuation Predictor\n• Transformer NLP Model Benchmarking\n\nCheck out the 'Projects' section to explore live demos & GitHub repos!";
   }
   if (text.match(/experience|intern|company/)) {
     return "Ashish has excellent hands-on experience! He completed a rigorous Data Science and AI Internship at Ai Variant Pvt. Ltd. in Bengaluru. There, he engineered machine learning pipelines and worked on real-world NLP model deployments. 📈\n\nWould you like to know about his educational background?";
