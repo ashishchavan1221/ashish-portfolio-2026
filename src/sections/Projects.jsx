@@ -102,7 +102,7 @@ const Projects = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             ref={scrollRef}
-            className="flex items-stretch gap-6 overflow-x-auto scroll-smooth pb-6 pt-2 hide-scrollbar"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-6 pt-2"
           >
             {projectList.map((proj, idx) => (
               <motion.div
@@ -152,14 +152,14 @@ const Projects = () => {
           {/* Easy Left & Right Navigation Arrows */}
           <button 
             onClick={() => scroll('left')} 
-            className="absolute -left-1 sm:-left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95"
+            className="absolute -left-1 sm:-left-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95 hidden sm:block"
             aria-label="Previous Projects"
           >
             <FaChevronLeft size={18} />
           </button>
           <button 
             onClick={() => scroll('right')} 
-            className="absolute -right-1 sm:-right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95"
+            className="absolute -right-1 sm:-right-3 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-cyan-400 border border-cyan-500/40 shadow-xl hover:bg-cyan-400 hover:text-black transition-all hover:scale-110 active:scale-95 hidden sm:block"
             aria-label="Next Projects"
           >
             <FaChevronRight size={18} />

@@ -84,7 +84,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className={`fixed right-6 sm:right-8 z-[100] flex flex-col items-end pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isScrolled ? 'bottom-[5.5rem] sm:bottom-[6rem]' : 'bottom-6'}`}>
+    <div className={`fixed right-4 sm:right-6 z-[100] flex flex-col items-end pointer-events-none transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isScrolled ? 'bottom-[5.5rem] sm:bottom-[6rem]' : 'bottom-5 sm:bottom-6'}`}>
       
       <AnimatePresence>
         {isOpen && (
@@ -92,7 +92,7 @@ const Chatbot = () => {
             initial={{ opacity: 0, scale: 0, originX: 1, originY: 1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0 }}
-            className="pointer-events-auto w-[90vw] sm:w-96 h-[32rem] bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-4 border border-slate-200 dark:border-cyan-400/30 transition-colors duration-500"
+            className="pointer-events-auto w-[calc(100vw-2rem)] max-w-[24rem] sm:w-96 h-[32rem] bg-white/95 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-4 border border-slate-200 dark:border-cyan-400/30 transition-colors duration-500"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-brand to-brand-2 dark:from-cyan-500 dark:to-blue-600 p-4 flex justify-between items-center text-white relative overflow-hidden">

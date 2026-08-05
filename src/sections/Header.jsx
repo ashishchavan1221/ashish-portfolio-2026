@@ -41,13 +41,16 @@ const Header = ({ isDark, setIsDark }) => {
         
         {/* === LEFT CODE WELCOMING BADGE === */}
         <Link to="home" smooth={true} className="flex items-center cursor-pointer shrink-0 group">
-          <div className="relative flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-slate-900/90 dark:bg-slate-900/95 text-xs sm:text-sm font-mono border border-emerald-500/40 shadow-lg backdrop-blur-md group-hover:border-cyan-400/70 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all">
-            <span className="relative flex h-2 w-2">
+          <div className="relative flex items-center gap-1.5 sm:gap-2 px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full bg-slate-900/90 dark:bg-slate-900/95 font-mono border border-emerald-500/40 shadow-lg backdrop-blur-md group-hover:border-cyan-400/70 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.3)] transition-all">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-purple-400 font-bold">&gt;</span>
-            <span className="text-slate-300 font-medium tracking-tight">
+            <span className="text-purple-400 font-bold text-xs sm:text-sm">&gt;</span>
+            {/* Short version on mobile */}
+            <span className="text-cyan-400 font-bold text-xs sm:hidden">AC</span>
+            {/* Full console.log on sm+ */}
+            <span className="hidden sm:inline text-slate-300 font-medium tracking-tight text-sm">
               <span className="text-cyan-400 font-bold">console</span>.<span className="text-amber-300 font-medium">log</span>(<span className="text-emerald-300 font-bold">"👋 Welcome!"</span>);
             </span>
           </div>

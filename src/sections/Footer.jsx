@@ -115,7 +115,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="fixed bottom-6 right-6 sm:right-8 z-[110]"
+            className="fixed bottom-5 sm:bottom-6 right-4 sm:right-6 z-[110]"
           >
             <Link to="home" smooth={true} duration={800} offset={-80}
               className="bg-brand dark:bg-cyan-500 text-white dark:text-black w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.2)] dark:shadow-[0_4px_15px_rgba(34,211,238,0.3)] hover:-translate-y-1 hover:shadow-[0_4px_25px_rgba(34,211,238,0.5)] transition-all cursor-pointer"
